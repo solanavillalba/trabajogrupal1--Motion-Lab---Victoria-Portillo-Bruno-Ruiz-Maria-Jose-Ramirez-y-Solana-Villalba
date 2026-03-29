@@ -1,0 +1,30 @@
+def parsear_linea(datos):
+    '''
+    Convierte los datos suministrados en el tipo de dato 
+    requerido para su analisis posterior.
+    Estos datos requieren de un orden previo
+    para poder ser correctamente clasificados.
+    Este es: "id; tiempo; x; y; hit; condicion".
+    Esta función devolvera una lista de datos con su tipo de dato requerido.
+
+    Parámetros:
+    datos : str
+    Son los elementos de los cuales se convertira su tipo de datos.
+
+    Returns:
+    lista : list
+    Es la lista con los elementos ya convertidos.
+
+    '''
+    lista = datos.split(";")
+    
+    id_participante = str(elemento[0])
+    tiempo = str(elemento[1])
+    x = int(elemento[2])
+    y = int(elemento[3])
+    hit = bool(elemento[4])
+    condicion = str(elemento[5])
+
+    return lista
+
+
