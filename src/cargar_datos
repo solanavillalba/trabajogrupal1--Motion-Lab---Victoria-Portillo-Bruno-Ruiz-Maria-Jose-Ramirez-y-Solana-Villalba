@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 def parsear_linea(datos):
     '''
     Convierte los datos suministrados en el tipo de dato 
@@ -28,3 +29,80 @@ def parsear_linea(datos):
     return lista
 
 
+=======
+def cargar_datos(ruta): 
+    """
+    Abre un archivo de Motion Lab y ordena los datos por participante.
+    
+    Parámetros
+    ----------
+    Ruta : string
+    Ruta por donde se puede acceder al archivo.
+    Retorna
+    Datos: Lista de dicionarios
+    Lista con diccionarios, cada diccionario corresponde a un participantes con sus datos (ID, Tiempo, x, y, hit y condición). 
+    """
+
+    archivo = open(ruta, "r")
+    primera_linea = archivo.readline()
+    lineas = archivo.readlines()
+    archivo.close()
+
+    lista_de_str= lineas.strip()
+
+    lista_valores=[]
+
+    for string in lista_de_str:
+        lista_valores.append(parsear_linea(string))
+
+    lista_con_diccionario=[]
+
+    while True:
+        if len(lista_valores)==0:
+            break
+
+        buscar=lista_valores[0][0]
+        datos_del_participante=[]
+        
+        for posicion in range(len(lista_valores)):
+            if lista_valores[posicion][0]==buscar:
+                posiciones_eliminar.append(posicion)
+                datos_del_participante.append(lista_valores[posicion])
+       
+        participante={}
+
+        for dato in datos_del_participante:
+            lista_valores.remove(dato)
+            
+            if "ID" not in participante:
+                participante["ID"]= dato[0]
+            
+            if "tiempo" not in participante:
+                participante["tiempo"]= [dato[1]]
+            else:
+                participante["tiempo"].append([dato[1]])
+            
+            if "x" not in participante:
+                participante["x"]= [dato[2]]
+            else:
+                participante["x"].append([dato[2]])
+            
+            if "Y" not in participante:
+                participante["y"]= [dato[3]]
+            else:
+                participante["y"].append([dato[3]])
+            
+            if "hit" not in participante:
+                participante["hit"]= [dato[4]]
+            else:
+                participante["hit"].append([dato[4]])
+        
+            if "condicion" not in participante:
+                participante["condicion"]= [dato[5]]
+            else:
+                participante["condicion"].append([dato[5]])
+        
+        lista_con_diccionario.append(participante)
+            
+    return lista_con_diccionario
+>>>>>>> Stashed changes
