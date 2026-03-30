@@ -1,3 +1,4 @@
+
 def parsear_linea(datos):
     '''
     Convierte los datos suministrados en el tipo de dato 
@@ -29,6 +30,7 @@ def parsear_linea(datos):
     lista[5] = str(lista[5])
 
     return lista
+
 
 
 def cargar_datos(ruta): 
@@ -105,4 +107,7 @@ def cargar_datos(ruta):
         
         lista_con_diccionario.append(participante)
             
+
     return lista_con_diccionario
+
+
