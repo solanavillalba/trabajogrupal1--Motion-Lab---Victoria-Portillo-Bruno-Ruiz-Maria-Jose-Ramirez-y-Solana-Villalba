@@ -1,15 +1,19 @@
+import metricas as m
+import cargar_datos as c
+import procesamiento_datos as p
+
 nombre_archivo = "datos_ejemplo_motionlab 21.08.54"
-lista_diccionario=cargar_datos(nombre_archivo)
+lista_diccionario=c.cargar_datos(nombre_archivo)
 
 while True:
     id_participante=input("ingrese id del participante del que quiere saber los datos: ")
-    if validar_datos(id, "int"):
+    if c.validar_datos(id, "int"):
         break
 
-diccionario=filtar_por_participante(id, lista_diccionario)
+diccionario=p.filtar_por_participante(id, lista_diccionario)
 
-hits_tot=calcular_hits_totales(diccionario)
-prom=calcular_promedio(diccionario)
+hits_tot=m.calcular_hits_totales(diccionario)
+prom=m.calcular_promedio(diccionario)
 
 print("el participante con id", id_participante)
 print("tiene", hits_tot, "hits totales")
