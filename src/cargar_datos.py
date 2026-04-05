@@ -58,26 +58,26 @@ def parsear_linea(datos):
     lista = datos.split(",")
     
     while True:
-        if validar_datos(lista[0], int):
+        if validar_datos(lista[0], "int") == True:
             lista[0] = int(lista[0])
         else:
             return False
-        if validar_datos(lista[1], float):
+        if validar_datos(lista[1], "float"):
             lista[1] = float(lista[1])
         else:
             return False
         
-        if validar_datos(lista[2], float):
+        if validar_datos(lista[2], "float"):
             lista[2] = float(lista[2])
         else:
             return False
         
-        if validar_datos(lista[3], float):
+        if validar_datos(lista[3], "float"):
             lista[3] = float(lista[3])
         else:
             return False
         
-        if validar_datos(lista[4], bool):
+        if validar_datos(lista[4], "bool"):
             if (lista[4].lower() == "true"):
                 lista[4]= True
             else:
@@ -102,7 +102,7 @@ def cargar_datos(ruta):
     Lista con diccionarios, cada diccionario corresponde a un participantes con sus datos (ID, Tiempo, x, y, hit y condición). Si no se pudieron castear los valores de alguna lista, se informara.
     """
 
-    archivo = open("datos_ejemplo.csv", "r")
+    archivo = open(ruta, "r")
     columna = archivo.readline()
     lineas = archivo.readlines()
     archivo.close()
@@ -114,16 +114,16 @@ def cargar_datos(ruta):
 
     lista_valores=[]
     contador_posicion=1
-
+    
     for string in lista_lineas:
-        if type(parsear_linea(string)) == bool:
+        if type(parsear_linea(string)) == list:
             lista_valores.append(parsear_linea(string))
             contador_posicion+=1
         else:
             print(f"Los datos de la fila numero {contador_posicion} no se pudieron castear.")
+            contador_posicion+=1
 
     lista_con_diccionario=[]
-
     while True:
         if len(lista_valores)==0:
             break

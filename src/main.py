@@ -3,13 +3,14 @@ import cargar_datos as c
 import procesamiento_datos as p
 
 nombre_archivo = "datos_ejemplo.csv"
-lista_diccionario=c.cargar_datos(nombre_archivo)
+lista_diccionario= c.cargar_datos(nombre_archivo)
 
 while True:
     id_participante=input("ingrese id del participante del que quiere saber los datos: ")
-    if c.validar_datos(id, "int"):
+    if c.validar_datos(id_participante, "int"):
         break
-
+    print("no ingresaste un int")
+    
 diccionario=p.filtar_por_participante(id, lista_diccionario)
 
 hits_tot=m.calcular_hits_totales(diccionario)
