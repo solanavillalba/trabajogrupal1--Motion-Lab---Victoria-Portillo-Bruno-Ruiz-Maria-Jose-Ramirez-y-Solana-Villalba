@@ -1,0 +1,1 @@
+Programa que se encarga de leer archivos de motion lab, pedir un id del participante del que se quiera saber sus metricas. E imprime el promedio de hits, primer tiempo que hizo un hit y cuantos hit hizo el participante.
