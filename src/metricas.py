@@ -7,12 +7,12 @@ def calcular_hits_totales(diccio):
         Diccionario del participante a extraer los datos de los hits.
     
     Retorna:
-    contaodr: int
+    contador: int
         Cantidad de hits que tuvo el participante.
     
     '''
     contador=0
-    for hit in datos['hit']:
+    for hit in diccio['hit']:
         if hit==True:
             contador+=1
     return contador
@@ -30,7 +30,7 @@ def calcular_promedio(diccio):
     Promedio del participante entre el tiempo y la cantidad total de hits.
     
     '''
-    tiempo_ultimo= diccio['tiempo'][-1]
-    hits_totales=calcular_hits_totales(diccio)
-    promedio= hits_totales/tiempo_ultimo
+    tiempo_ultimo = diccio['tiempo'][-1]
+    hits_totales = calcular_hits_totales(diccio)
+    promedio = hits_totales/tiempo_ultimo
     return promedio
