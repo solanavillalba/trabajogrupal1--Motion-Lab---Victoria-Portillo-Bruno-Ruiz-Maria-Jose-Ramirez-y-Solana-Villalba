@@ -1,0 +1,16 @@
+nombre_archivo = "datos_ejemplo_motionlab 21.08.54"
+lista_diccionario=cargar_datos(nombre_archivo)
+
+while True:
+    id_participante=input("ingrese id del participante del que quiere saber los datos: ")
+    if validar_datos(id, "int"):
+        break
+
+diccionario=filtar_por_participante(id, lista_diccionario)
+
+hits_tot=calcular_hits_totales(diccionario)
+prom=calcular_promedio(diccionario)
+
+print("el participante con id", id_participante)
+print("tiene", hits_tot, "hits totales")
+print("y un promedio de ", prom, "hits por segundo")

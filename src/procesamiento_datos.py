@@ -19,7 +19,7 @@ def filtar_por_participante(id, lista):
     devuelve un None.
     '''
     for dicc in lista:
-        if id == dicc[id_participante]:
+        if id == dicc["ID"]:
             return dicc
 
     return None
