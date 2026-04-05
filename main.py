@@ -1,6 +1,6 @@
-import metricas as m
-import cargar_datos as c
-import procesamiento_datos as p
+import src.metricas as m
+import src.cargar_datos as c
+import src.procesamiento_datos as p
 
 nombre_archivo = "datos/datos_ejemplo.csv"
 lista_diccionario= c.cargar_datos(nombre_archivo)
