@@ -102,7 +102,7 @@ def cargar_datos(ruta):
     Lista con diccionarios, cada diccionario corresponde a un participantes con sus datos (ID, Tiempo, x, y, hit y condición). Si no se pudieron castear los valores de alguna lista, se informara.
     """
 
-    archivo = open(ruta, "r")
+    archivo = open("datos_ejemplo.csv", "r")
     columna = archivo.readline()
     lineas = archivo.readlines()
     archivo.close()

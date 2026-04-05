@@ -2,7 +2,7 @@ import metricas as m
 import cargar_datos as c
 import procesamiento_datos as p
 
-nombre_archivo = "datos_ejemplo_motionlab 21.08.54"
+nombre_archivo = "datos_ejemplo.csv"
 lista_diccionario=c.cargar_datos(nombre_archivo)
 
 while True:
