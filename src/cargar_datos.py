@@ -36,7 +36,21 @@ def validar_datos(valor, tipo):
         else:
             return True
 
+def numero_en_rango(numero, minimo, maximo==float('inf'), incluido):
+    """
 
+    """
+    if incluido == True:
+        if minimo<=numero<=maximo:
+            return True
+        else:
+            return False
+    else:
+        if minimo<numero<maximo:
+            return True
+        else:
+            return False
+        
 def parsear_linea(datos):
     '''
     Convierte los datos suministrados en el tipo de dato 
