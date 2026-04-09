@@ -88,6 +88,8 @@ def parsear_linea(datos):
 
     '''
     lista = datos.split(",")
+    if len(lista)!=6:
+        return "Error de longitud en la linea"
     
     while True:
         if validar_datos(lista[0], "int") == True:
