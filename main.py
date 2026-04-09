@@ -10,19 +10,27 @@ while True:
     if c.validar_datos(id_participante, "int"):
         id_participante=int(id_participante)
         break
-    print("no ingresaste un int")
+    print("Error, no ingresaste un int")
     
 diccionario= p.filtar_por_participante(id_participante, lista_diccionario)
 
 if diccionario == False:
-    print("Id no existe")
-    
+    print("Error, Id no existe")
+
 else:
     primer_hit=m.calcular_tiempo_primer_hit(diccionario)
     hits_tot=m.calcular_hits_totales(diccionario)
-    prom=m.calcular_promedio(diccionario)
 
     print("el participante con id", id_participante)
-    print("hizo su primer hit en el tiempo", primer_hit)
-    print("tiene", hits_tot, "hit en total")
-    print("y un promedio de", prom, "hits por segundo")
+    if type(primer_hit)==str: 
+        print(primer_hit)
+    else:
+        print("Hizo su primer hit en el tiempo", primer_hit)
+        
+    print("Tiene", hits_tot, "hit en total")
+    prom=m.calcular_promedio(diccionario)
+    
+    if prom==False:
+        print("Y no se puede calcular el promedio porque el ultimo tiempo es 0")
+    else:
+        print("Y un promedio de", prom, "hits por segundo")

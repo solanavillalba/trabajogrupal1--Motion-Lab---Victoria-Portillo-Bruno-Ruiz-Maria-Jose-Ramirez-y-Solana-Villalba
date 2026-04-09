@@ -14,13 +14,15 @@ def filtar_por_participante(id_participante, lista):
     Returns:
     dicc: dict
     Es el diccionario que contiene el ID suministrado
-    None: NoneType
+    False: Bool
     En caso de que el ID no se encuentre en la lista,
-    devuelve un None.
+    devuelve un False.
     '''
-    for dicc in lista:
-        if id_participante == dicc["ID"]:
+
+    for dicc in lista:        
+        if dicc["ID"]==id_participante:
             return dicc
 
-    return None
+ 
+    return False
 

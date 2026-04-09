@@ -7,14 +7,14 @@ def calcular_tiempo_primer_hit(datos):
     "ID", "tiempo", "hit", "x", "y", "condicion"
         
     Returns:
-    float
-    Primer tiempo donde hubo un hit, o None si no hay hits.
+    resultado: float  No hizo ningún hit : Str
+    Primer tiempo donde hubo un hit, o no hizo ningún hit si no hay hits.
 
     """
 
 #Incializador variable
 
-    primer_tiempo = None
+    primer_tiempo = "No hizo ningún hit"
 
     for i in range(len(datos["hit"])):
          hit_actual = datos["hit"][i]
@@ -56,11 +56,14 @@ def calcular_promedio(diccio):
         Diccionario del participante con la información para calcular el promeido (tiempo y hits).
     
     Retorna:
-    promedio: float
-    Promedio del participante entre el tiempo y la cantidad total de hits.
+    promedio: float False:bool
+    Promedio del participante entre el tiempo y la cantidad total de hits, False si el ultimo tiempo es 0.
     
     '''
     tiempo_ultimo = diccio['tiempo'][-1]
+    if tiempo_ultimo==0:
+         return False
+    
     hits_totales = calcular_hits_totales(diccio)
     promedio = round(hits_totales/tiempo_ultimo)
     return promedio
