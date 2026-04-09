@@ -94,7 +94,7 @@ def parsear_linea(datos):
             lista[0] = int(lista[0])
         else:
             return "Error casteando el ID"
-        if validar_datos(lista[1], "float") and numero_en_rango(lista[1], True, 0):
+        if validar_datos(lista[1], "float") and numero_en_rango(float(lista[1]), True, 0):
             lista[1] = float(lista[1])
         else:
             return "Error casteando el Tiempo"

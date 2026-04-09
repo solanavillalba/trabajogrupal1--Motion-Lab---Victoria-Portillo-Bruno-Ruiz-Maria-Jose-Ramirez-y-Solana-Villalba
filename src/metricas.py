@@ -62,5 +62,5 @@ def calcular_promedio(diccio):
     '''
     tiempo_ultimo = diccio['tiempo'][-1]
     hits_totales = calcular_hits_totales(diccio)
-    promedio = hits_totales/tiempo_ultimo
+    promedio = round(hits_totales/tiempo_ultimo)
     return promedio
