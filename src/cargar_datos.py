@@ -93,21 +93,21 @@ def parsear_linea(datos):
         if validar_datos(lista[0], "int") == True:
             lista[0] = int(lista[0])
         else:
-            return False
+            return "Error casteando el ID"
         if validar_datos(lista[1], "float") and numero_en_rango(lista[1], True, 0):
             lista[1] = float(lista[1])
         else:
-            return False
+            return "Error casteando el Tiempo"
         
         if validar_datos(lista[2], "float"):
             lista[2] = float(lista[2])
         else:
-            return False
+            return "Error casteando la posición X"
         
         if validar_datos(lista[3], "float"):
             lista[3] = float(lista[3])
         else:
-            return False
+            return "Error casteando la Posición Y"
         
         if validar_datos(lista[4], "bool"):
             if (lista[4].lower() == "true"):
@@ -115,7 +115,7 @@ def parsear_linea(datos):
             else:
                 lista[4]= False
         else:
-            return False
+            return "Error casteando el Hit"
         
         return lista
 
@@ -152,7 +152,7 @@ def cargar_datos(ruta):
             lista_valores.append(parsear_linea(string))
             contador_posicion+=1
         else:
-            print(f"Los datos de la fila numero {contador_posicion} no se pudieron castear.")
+            print(f"{parsear_linea(string)} de la fila numero {contador_posicion}, se eliminio el dato del analisis")
             contador_posicion+=1
 
     lista_con_diccionario=[]
