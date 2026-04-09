@@ -101,12 +101,12 @@ def parsear_linea(datos):
         else:
             return "Error casteando el Tiempo"
         
-        if validar_datos(lista[2], "float"):
+        if validar_datos(lista[2], "float") and numero_en_rango(float(lista[2]), True, 0):
             lista[2] = float(lista[2])
         else:
             return "Error casteando la posición X"
         
-        if validar_datos(lista[3], "float"):
+        if validar_datos(lista[3], "float") and numero_en_rango(float(lista[3]), True, 0):
             lista[3] = float(lista[3])
         else:
             return "Error casteando la Posición Y"
