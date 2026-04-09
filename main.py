@@ -14,11 +14,15 @@ while True:
     
 diccionario= p.filtar_por_participante(id_participante, lista_diccionario)
 
-primer_hit=m.calcular_tiempo_primer_hit(diccionario)
-hits_tot=m.calcular_hits_totales(diccionario)
-prom=m.calcular_promedio(diccionario)
+if diccionario == False:
+    print("Id no existe")
+    
+else:
+    primer_hit=m.calcular_tiempo_primer_hit(diccionario)
+    hits_tot=m.calcular_hits_totales(diccionario)
+    prom=m.calcular_promedio(diccionario)
 
-print("el participante con id", id_participante)
-print("hizo su primer hit en el tiempo", primer_hit)
-print("tiene", hits_tot, "hit en total")
-print("y un promedio de", prom, "hits por segundo")
+    print("el participante con id", id_participante)
+    print("hizo su primer hit en el tiempo", primer_hit)
+    print("tiene", hits_tot, "hit en total")
+    print("y un promedio de", prom, "hits por segundo")

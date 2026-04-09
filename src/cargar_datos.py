@@ -94,7 +94,7 @@ def parsear_linea(datos):
             lista[0] = int(lista[0])
         else:
             return False
-        if validar_datos(lista[1], "float"):
+        if validar_datos(lista[1], "float") and numero_en_rango(lista[1], True, 0):
             lista[1] = float(lista[1])
         else:
             return False
