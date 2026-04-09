@@ -36,17 +36,35 @@ def validar_datos(valor, tipo):
         else:
             return True
 
-def numero_en_rango(numero, minimo, maximo==float('inf'), incluido):
-    """
+def numero_en_rango(numero, incluido, minimo=-float('inf'), maximo=float('inf')):
 
     """
+    Verifica si el numero de entrada esta dentro del rango o no.
+
+    Parámetros:
+    numero : int/float
+    Numero para verificar
+    
+    incluido : Bool
+    Si queres que el minimo y maximo se incluya en el rango o no.
+    minimo : int/float
+    Minimo del rango (Si no se especifica, no se utiliza)
+
+    maximo: int/float
+    Maximo del rango (Si no se especifica, no se utiliza)
+
+    Returns:
+    Respuesta : bool
+    Devuelve si esta dentro del rango o no.
+    """
+    
     if incluido == True:
-        if minimo<=numero<=maximo:
+        if minimo<=numero and numero<=maximo:
             return True
         else:
             return False
     else:
-        if minimo<numero<maximo:
+        if minimo<numero and numero<maximo:
             return True
         else:
             return False
