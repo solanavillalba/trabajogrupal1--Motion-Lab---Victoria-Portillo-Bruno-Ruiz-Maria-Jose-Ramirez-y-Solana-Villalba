@@ -135,8 +135,11 @@ def cargar_datos(ruta):
     Datos: Lista de dicionarios
     Lista con diccionarios, cada diccionario corresponde a un participantes con sus datos (ID, Tiempo, x, y, hit y condición). Si no se pudieron castear los valores de alguna lista, se informara.
     """
-
-    archivo = open(ruta, "r")
+    try:
+        archivo = open(ruta, "r")
+    except:
+        return "No se pudo abrir el archivo"
+    
     columna = archivo.readline()
     lineas = archivo.readlines()
     archivo.close()
