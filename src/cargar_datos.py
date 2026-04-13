@@ -91,35 +91,35 @@ def parsear_linea(datos):
     if len(lista)!=6:
         return "Error de longitud en la linea"
     
-    while True:
-        if validar_datos(lista[0], "int") == True:
-            lista[0] = int(lista[0])
-        else:
-            return "Error casteando el ID"
-        if validar_datos(lista[1], "float") and numero_en_rango(float(lista[1]), True, 0):
-            lista[1] = float(lista[1])
-        else:
-            return "Error casteando el Tiempo"
+    if validar_datos(lista[0], "int") == True:
+        lista[0] = int(lista[0])
+    else:
+        return "Error casteando el ID"
+    
+    if validar_datos(lista[1], "float") and numero_en_rango(float(lista[1]), True, 0):
+        lista[1] = float(lista[1])
+    else:
+        return "Error casteando el Tiempo"
         
-        if validar_datos(lista[2], "float") and numero_en_rango(float(lista[2]), True, 0):
-            lista[2] = float(lista[2])
-        else:
-            return "Error casteando la posición X"
+    if validar_datos(lista[2], "float") and numero_en_rango(float(lista[2]), True, 0):
+        lista[2] = float(lista[2])
+    else:
+        return "Error casteando la posición X"
         
-        if validar_datos(lista[3], "float") and numero_en_rango(float(lista[3]), True, 0):
-            lista[3] = float(lista[3])
-        else:
-            return "Error casteando la Posición Y"
+    if validar_datos(lista[3], "float") and numero_en_rango(float(lista[3]), True, 0):
+        lista[3] = float(lista[3])
+    else:
+        return "Error casteando la Posición Y"
         
-        if validar_datos(lista[4], "bool"):
-            if (lista[4].lower() == "true"):
-                lista[4]= True
-            else:
-                lista[4]= False
+    if validar_datos(lista[4], "bool"):
+        if (lista[4].lower() == "true"):
+            lista[4]= True
         else:
-            return "Error casteando el Hit"
+            lista[4]= False
+    else:
+        return "Error casteando el Hit"
         
-        return lista
+    return lista
 
 
 
