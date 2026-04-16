@@ -7,10 +7,10 @@ def cargar_datos(ruta):
     
     Parámetros
     ----------
-    Ruta : string
+    ruta : str
     Ruta por donde se puede acceder al archivo.
     Retorna
-    Datos: Lista de dicionarios
+    lista_con_diccionario: list
     Lista con diccionarios, cada diccionario corresponde a un participantes con sus datos (ID, Tiempo, x, y, hit y condición). Si no se pudieron castear los valores de alguna lista, se informara.
     """
     try:

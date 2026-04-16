@@ -9,8 +9,8 @@ def validar_datos(valor, tipo):
     tipo: str (int/float/bool)
     Tipo al que se quiere castear el valor, tiene que ser escrito de la manera especificada y en minuscula.
 
-    Returns:
-    resultado: bool
+    Retorna:
+        bool
     False si no se puede castear o True si sí
     """
 
@@ -51,8 +51,8 @@ def numero_en_rango(numero, incluido, minimo=-float('inf'), maximo=float('inf'))
     maximo: int/float
     Maximo del rango (Si no se especifica, no se utiliza)
 
-    Returns:
-    Respuesta : bool
+    Retorna:
+        bool
     Devuelve si esta dentro del rango o no.
     """
     
@@ -80,7 +80,7 @@ def parsear_linea(datos):
     datos : str
     Son los elementos de los cuales se convertira su tipo de datos.
 
-    Returns:
+    Retorna:
     lista : list / falso: bool (si no se pudo castear)
     Es la lista con los elementos ya convertidos, pero si no se pudieron castear los datos devuelve False.
 
