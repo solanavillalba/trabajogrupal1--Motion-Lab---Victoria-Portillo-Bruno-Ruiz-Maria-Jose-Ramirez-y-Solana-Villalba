@@ -15,7 +15,7 @@ def validar_datos(valor, tipo):
     """
 
     if tipo == "bool":
-        if (valor.lower() != "true") or (valor.lower() != "false"):
+        if (valor.lower() != "true") and (valor.lower() != "false"):
             raise ValueError ("Error casteando booleano")
         
     elif tipo == "int":

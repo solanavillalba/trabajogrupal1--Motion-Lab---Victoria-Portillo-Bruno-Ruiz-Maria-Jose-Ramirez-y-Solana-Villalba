@@ -61,9 +61,7 @@ def cargar_datos(ruta):
             participante["ID"]= dato[0]
             participante["tiempo"].append(dato[1])
             participante["x"].append(dato[2])
-            participante["y"]= [dato[3]]
             participante["y"].append(dato[3])
-            participante["hit"]= [dato[4]]
             participante["hit"].append(dato[4])
             participante["condicion"]= dato[5]
             
