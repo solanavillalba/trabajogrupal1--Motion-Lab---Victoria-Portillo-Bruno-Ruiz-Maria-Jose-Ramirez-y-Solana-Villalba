@@ -68,7 +68,7 @@ def cargar_datos(ruta):
             participante["condicion"]= dato[5]
             
         lista_con_diccionario.append(participante)
-
+    """
     lista_con_diccionario=[]
     lista_id=[]
     while True:
@@ -115,7 +115,6 @@ def cargar_datos(ruta):
             
         lista_con_diccionario.append(participante)
             
+    """
 
     return lista_con_diccionario
-
-
