@@ -67,7 +67,7 @@ def numero_en_rango(numero, incluido, minimo=-float('inf'), maximo=float('inf'))
         if minimo<numero and numero<maximo:
             return True
         else:
-            raise ValueError
+            raise ValueError("Error, numero fuera de rango")
         
 def parsear_linea(datos):
     '''
