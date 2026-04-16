@@ -18,13 +18,13 @@ def validar_datos(valor, tipo):
         if (valor.lower() == "true") or (valor.lower() == "false"):
             return True
         else:
-            return False
+            raise ValueError ("Error casteando booleano")
         
     if tipo == "int":
         try:
             validacion= int(valor)
         except:
-            return False
+            raise ValueError ("Error casteando int")
         else:
             return True
 
@@ -32,7 +32,7 @@ def validar_datos(valor, tipo):
         try:
             valido= float(valor)
         except:
-            return False
+            raise ValueError ("Error casteando float")
         else:
             return True
 
@@ -62,12 +62,12 @@ def numero_en_rango(numero, incluido, minimo=-float('inf'), maximo=float('inf'))
         if minimo<=numero and numero<=maximo:
             return True
         else:
-            return False
+            raise ValueError("Error, numero fuera de rango")
     else:
         if minimo<numero and numero<maximo:
             return True
         else:
-            return False
+            raise ValueError
         
 def parsear_linea(datos):
     '''
@@ -89,34 +89,26 @@ def parsear_linea(datos):
     '''
     lista = datos.split(",")
     if len(lista)!=6:
-        raise ("Error de longitud en la linea")
+        raise ValueError("Error de longitud en la linea")
     
-    if validar_datos(lista[0], "int"):
+    try:
+        a=validar_datos(lista[0], "int")
+        b=validar_datos(lista[1], "float")
+        c=numero_en_rango(float(lista[1]), True, 0)
+        d=validar_datos(lista[2], "float")
+        e=numero_en_rango(float(lista[2]), True, 0)
+        f=validar_datos(lista[3], "float")
+        g=numero_en_rango(float(lista[3]), True, 0)
+        h=validar_datos(lista[4], "bool")
+    except ValueError as e:
+        raise ValueError (e)   
+    else:
         lista[0] = int(lista[0])
-    else:
-        raise ValueError ("Error casteando el ID")
-    
-    if validar_datos(lista[1], "float") and numero_en_rango(float(lista[1]), True, 0):
         lista[1] = float(lista[1])
-    else:
-        raise ValueError ("Error casteando el Tiempo")
-        
-    if validar_datos(lista[2], "float") and numero_en_rango(float(lista[2]), True, 0):
         lista[2] = float(lista[2])
-    else:
-        raise ValueError ("Error casteando la posición X")
-        
-    if validar_datos(lista[3], "float") and numero_en_rango(float(lista[3]), True, 0):
         lista[3] = float(lista[3])
-    else:
-        raise ValueError ("Error casteando la Posición Y")
-        
-    if validar_datos(lista[4], "bool"):
         if (lista[4].lower() == "true"):
             lista[4]= True
         else:
             lista[4]= False
-    else:
-        raise ValueError ("Error casteando el Hit")
-        
-    return lista
+        return lista
