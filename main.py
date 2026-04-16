@@ -1,19 +1,22 @@
 import src.metricas as m
 import src.cargar_datos as c
 import src.procesamiento_datos as p
+import src.validar_datos as v
 
 nombre_archivo = "datos/MotionLab_mock_data.csv"
-lista_diccionario= c.cargar_datos(nombre_archivo)
-
-if lista_diccionario is str:
-    print("Error al abrir el archivo, modificar ruta")
-
+try:
+    lista_diccionario= c.cargar_datos(nombre_archivo)
+except FileNotFoundError as e:
+    print(e)
 
 else:
-
     while True:
         id_participante=input("ingrese id del participante del que quiere saber los datos: ")
-        if c.validar_datos(id_participante, "int"):
+        try:
+            ccc= v.validar_datos(id_participante, "int")
+        except Exception as e:
+            print(e)
+        else:
             id_participante=int(id_participante)
             break
         print("Error, no ingresaste un int")
