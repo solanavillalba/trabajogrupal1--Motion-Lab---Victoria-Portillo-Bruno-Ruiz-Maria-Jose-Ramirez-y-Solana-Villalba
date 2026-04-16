@@ -20,9 +20,15 @@ else:
             id_participante=int(id_participante)
             break
         print("Error, no ingresaste un int")
-        
-    diccionario= p.filtar_por_participante(id_participante, lista_diccionario)
-
+    
+    while True:
+        try:   
+            diccionario= p.filtar_por_participante(id_participante, lista_diccionario)
+        except ValueError as e:
+            print(e)
+        else:
+            break
+    
     if type(diccionario) == bool:
         print("Error, Id no existe")
 
