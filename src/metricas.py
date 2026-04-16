@@ -20,8 +20,9 @@ def calcular_tiempo_primer_hit(datos):
          hit_actual = datos["hit"][i]
          tiempo_actual = datos["tiempo"][i]
          if hit_actual == True:
-                primer_tiempo = tiempo_actual
-                return primer_tiempo
+                return tiempo_actual
+    
+    return primer_tiempo
 
 
 
@@ -62,7 +63,7 @@ def calcular_promedio(diccio):
     '''
     tiempo_ultimo = diccio['tiempo'][-1]
     if tiempo_ultimo==0:
-         return False
+        raise ZeroDivisionError("El ultimo tiempo es 0")
     
     hits_totales = calcular_hits_totales(diccio)
     promedio = round(hits_totales/tiempo_ultimo)

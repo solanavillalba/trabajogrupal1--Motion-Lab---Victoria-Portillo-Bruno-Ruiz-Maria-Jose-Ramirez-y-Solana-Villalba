@@ -22,7 +22,6 @@ def filtar_por_participante(id_participante, lista):
     for dicc in lista:        
         if dicc["ID"]==id_participante:
             return dicc
-
- 
-    return False
+    
+    raise ValueError("Id erroneo")
 

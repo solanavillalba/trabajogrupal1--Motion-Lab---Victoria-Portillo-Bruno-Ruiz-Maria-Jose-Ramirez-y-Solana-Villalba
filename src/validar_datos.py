@@ -15,26 +15,24 @@ def validar_datos(valor, tipo):
     """
 
     if tipo == "bool":
-        if (valor.lower() == "true") or (valor.lower() == "false"):
-            return True
-        else:
+        if (valor.lower() != "true") or (valor.lower() != "false"):
             raise ValueError ("Error casteando booleano")
         
-    if tipo == "int":
+    elif tipo == "int":
         try:
             validacion= int(valor)
         except:
             raise ValueError ("Error casteando int")
-        else:
-            return True
-
-    if tipo == "float":
+        
+    elif tipo == "float":
         try:
             valido= float(valor)
         except:
             raise ValueError ("Error casteando float")
-        else:
-            return True
+    else:
+        raise ValueError("Mal usada la funcion")
+    return None
+
 
 def numero_en_rango(numero, incluido, minimo=-float('inf'), maximo=float('inf')):
 
@@ -92,14 +90,14 @@ def parsear_linea(datos):
         raise ValueError("Error de longitud en la linea")
     
     try:
-        a=validar_datos(lista[0], "int")
-        b=validar_datos(lista[1], "float")
-        c=numero_en_rango(float(lista[1]), True, 0)
-        d=validar_datos(lista[2], "float")
-        e=numero_en_rango(float(lista[2]), True, 0)
-        f=validar_datos(lista[3], "float")
-        g=numero_en_rango(float(lista[3]), True, 0)
-        h=validar_datos(lista[4], "bool")
+        validar_datos(lista[0], "int")
+        validar_datos(lista[1], "float")
+        numero_en_rango(float(lista[1]), True, 0)
+        validar_datos(lista[2], "float")
+        numero_en_rango(float(lista[2]), True, 0)
+        validar_datos(lista[3], "float")
+        numero_en_rango(float(lista[3]), True, 0)
+        validar_datos(lista[4], "bool")
     except ValueError as e:
         raise ValueError (e)   
     else:

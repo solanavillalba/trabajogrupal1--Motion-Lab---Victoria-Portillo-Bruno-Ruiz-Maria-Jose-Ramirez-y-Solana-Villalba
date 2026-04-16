@@ -43,9 +43,10 @@ else:
             print("Hizo su primer hit en el tiempo", primer_hit)
             
         print("Tiene", hits_tot, "hit en total")
-        prom=m.calcular_promedio(diccionario)
         
-        if prom==False:
-            print("Y no se puede calcular el promedio porque el ultimo tiempo es 0")
+        try:
+            prom=m.calcular_promedio(diccionario)
+        except ZeroDivisionError as e:
+            print(e)
         else:
             print("Y un promedio de", prom, "hits por segundo")
