@@ -18,35 +18,27 @@ else:
             print(e)
         else:
             id_participante=int(id_participante)
-            break
-        print("Error, no ingresaste un int")
-    
-    while True:
-        try:   
-            diccionario= p.filtar_por_participante(id_participante, lista_diccionario)
-        except ValueError as e:
-            print(e)
-        else:
-            break
-    
-    if type(diccionario) == bool:
-        print("Error, Id no existe")
+            try:   
+                diccionario= p.filtar_por_participante(id_participante, lista_diccionario)
+            except ValueError as e:
+                print(e)
+            else:
+                break
 
-    elif type(diccionario) == dict:
-        primer_hit=m.calcular_tiempo_primer_hit(diccionario)
-        hits_tot=m.calcular_hits_totales(diccionario)
+    primer_hit=m.calcular_tiempo_primer_hit(diccionario)
+    hits_tot=m.calcular_hits_totales(diccionario)
 
-        print("el participante con id", id_participante)
-        if type(primer_hit)==str: 
-            print(primer_hit)
-        else:
-            print("Hizo su primer hit en el tiempo", primer_hit)
+    print("el participante con id", id_participante)
+    if type(primer_hit)==str: 
+        print(primer_hit)
+    else:
+        print("Hizo su primer hit en el tiempo", primer_hit)
             
-        print("Tiene", hits_tot, "hit en total")
+    print("Tiene", hits_tot, "hit en total")
         
-        try:
-            prom=m.calcular_promedio(diccionario)
-        except ZeroDivisionError as e:
-            print(e)
-        else:
-            print("Y un promedio de", prom, "hits por segundo")
+    try:
+        prom=m.calcular_promedio(diccionario)
+    except ZeroDivisionError as e:
+        print(e)
+    else:
+        print("Y un promedio de", prom, "hits por segundo")
