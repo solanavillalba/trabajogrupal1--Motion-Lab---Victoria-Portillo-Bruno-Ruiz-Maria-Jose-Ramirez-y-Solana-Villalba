@@ -77,9 +77,7 @@ def cargar_datos(ruta):
                 par["ID"]= dato[0]
                 par["tiempo"].append(dato[1])
                 par["x"].append(dato[2])
-                par["y"]= [dato[3]]
                 par["y"].append(dato[3])
-                par["hit"]= [dato[4]]
                 par["hit"].append(dato[4])
                 par["condicion"]= dato[5]
                 lista_con_diccionario.append(par)
@@ -90,9 +88,7 @@ def cargar_datos(ruta):
                     if dicc["ID"]==dato[0]:    
                         dicc["tiempo"].append(dato[1])
                         dicc["x"].append(dato[2])
-                        dicc["y"]= [dato[3]]
                         dicc["y"].append(dato[3])
-                        dicc["hit"]= [dato[4]]
                         dicc["hit"].append(dato[4])
                 
 
@@ -105,9 +101,7 @@ def cargar_datos(ruta):
             participante["ID"]= dato[0]
             participante["tiempo"].append(dato[1])
             participante["x"].append(dato[2])
-            participante["y"]= [dato[3]]
             participante["y"].append(dato[3])
-            participante["hit"]= [dato[4]]
             participante["hit"].append(dato[4])
             participante["condicion"]= dato[5]
             
