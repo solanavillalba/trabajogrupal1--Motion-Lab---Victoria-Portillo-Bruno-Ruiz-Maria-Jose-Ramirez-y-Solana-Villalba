@@ -3,7 +3,7 @@ import src.cargar_datos as c
 import src.procesamiento_datos as p
 import src.validar_datos as v
 
-nombre_archivo = "datos/MotionLab_mock_data_error05.csv"
+nombre_archivo = "datos/MotionLab_mock_data_error10.csv"
 try:
     lista_diccionario= c.cargar_datos(nombre_archivo)
 except FileNotFoundError as e:

@@ -31,7 +31,7 @@ def validar_datos(valor, tipo):
             raise ValueError ("Error casteando float")
     elif tipo=="condicion":
         if (valor.lower() != "competencia") and (valor.lower() != "cooperacion"):
-            raise ValueError ("Error casteando booleano")
+            raise ValueError ("Error casteando la condicion")
     else:
         raise ValueError("Mal usada la funcion")
     return None
@@ -89,8 +89,8 @@ def parsear_linea(datos):
 
     '''
     lista = datos.split(",")
-    if len(lista)!=6:
-        raise ValueError("Error de longitud en la linea")
+    if len(lista) >6  or len(lista)<6:
+        raise ValueError("Error de dato en la linea")
     
     try:
         validar_datos(lista[0], "int")
