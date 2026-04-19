@@ -102,7 +102,7 @@ def parsear_linea(datos):
         validar_datos(lista[3], "float")
         numero_en_rango(float(lista[3]), True, 0)
         validar_datos(lista[4], "bool")
-        validar_datos(lista[-1], "condicions")
+        validar_datos(lista[-1], "condicion")
     except ValueError as e:
         raise ValueError (e)   
     else:
