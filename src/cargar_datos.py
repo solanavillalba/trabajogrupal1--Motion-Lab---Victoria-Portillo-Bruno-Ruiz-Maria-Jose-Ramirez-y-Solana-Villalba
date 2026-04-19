@@ -17,8 +17,6 @@ def cargar_datos(ruta):
         archivo = open(ruta, "r")
     except FileNotFoundError:
         raise FileNotFoundError("No se pudo abrir el archivo")
-    
-    columna = archivo.readline()
     lineas = archivo.readlines()
     archivo.close()
     

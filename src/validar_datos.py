@@ -91,6 +91,7 @@ def parsear_linea(datos):
     
     try:
         validar_datos(lista[0], "int")
+        numero_en_rango(float(lista[0]), True, 1)
         validar_datos(lista[1], "float")
         numero_en_rango(float(lista[1]), True, 0)
         validar_datos(lista[2], "float")
