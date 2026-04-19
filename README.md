@@ -15,3 +15,29 @@ Errores y Validaciones:
 
 Division por 0: "No se puede calcular el promedio porque el ultimo tiempo es 0". La funcion calcular_promedio de metricas.py valida que el divisor no sea 0.
 
+-------------------------------------------------------------------------------------
+  Procedimiento con objetos:
+
+  clase: Participante
+  atributos:
+  - ID
+  - tiempo
+  - hit
+  - x
+  - y
+  - condicion
+  metodos:
+  - promedio
+  - tiempo de primer hit
+  - cantidad de hit
+
+  clase: Muestra
+  atributos:
+  - lista de objetos
+  metodos:
+  - Mostrar datos de un participante
+  - Calcular promedio de todos los participantes
+  - Promedio de primer hit
+  - Hits totales
+  - Promedio de hits totales
+  
