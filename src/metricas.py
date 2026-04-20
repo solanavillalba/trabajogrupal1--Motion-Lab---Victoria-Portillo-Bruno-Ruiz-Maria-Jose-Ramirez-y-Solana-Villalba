@@ -10,6 +10,7 @@ def calcular_tiempo_primer_hit(datos):
     Retorna:
     tiempo_actual: float
     Es el primer tiempo donde hubo un hit.
+    
     primer_tiempo: str  
     En caso de no haber hits, devuelve: "No hizo ningún hit".
 

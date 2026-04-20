@@ -12,6 +12,10 @@ def cargar_datos(ruta):
     Retorna
     lista_con_diccionario: list
     Lista con diccionarios, cada diccionario corresponde a un participantes con sus datos (ID, Tiempo, x, y, hit y condición). Si no se pudieron castear los valores de alguna lista, se informara.
+    
+    Raises:
+    FileNotFoundError: Exception 
+    Si no fue posible encontrar el archivo.
     """
     try:
         archivo = open(ruta, "r")
