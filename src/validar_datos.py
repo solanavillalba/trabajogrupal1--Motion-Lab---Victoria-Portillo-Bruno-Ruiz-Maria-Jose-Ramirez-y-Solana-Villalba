@@ -10,12 +10,12 @@ def validar_datos(valor, tipo):
     Tipo al que se quiere castear el valor, tiene que ser escrito de la manera especificada y en minuscula.
 
     Retorna:
-    True: bool
-    Si puede castear
-
+        bool
+    False si no se puede castear o True si sí
+    
     Raises:
-    ValueError: Exception 
-    Si no fue posible castear el dato.
+    ValueError:
+        Ocurre si no se puede convertir el valor  o es incorrecto.
     """
 
     if tipo == "bool":
@@ -33,9 +33,6 @@ def validar_datos(valor, tipo):
             valido= float(valor)
         except:
             raise ValueError ("Error casteando float")
-    elif tipo=="condicion":
-        if (valor.lower() != "competencia") and (valor.lower() != "cooperacion"):
-            raise ValueError ("Error casteando la condicion")
     else:
         raise ValueError("Mal usada la funcion")
     return None
@@ -59,12 +56,12 @@ def numero_en_rango(numero, incluido, minimo=-float('inf'), maximo=float('inf'))
     Maximo del rango (Si no se especifica, no se utiliza)
 
     Retorna:
-    True: bool
-    Devuelve si esta dentro del rango.
+        bool
+    Devuelve si esta dentro del rango o no.
 
-    Raises:
-    ValueError: Exception 
-    Si el dato no esta dentro del rango.
+    Raises: 
+    ValueError:
+        Ocurre si el numero se encuentra fuera de rango. 
     """
     
     if incluido == True:
@@ -92,17 +89,17 @@ def parsear_linea(datos):
     Son los elementos de los cuales se convertira su tipo de datos.
 
     Retorna:
-    lista : list
-    Es la lista con los elementos ya convertidos.
+    lista : list / falso: bool (si no se pudo castear)
+    Es la lista con los elementos ya convertidos, pero si no se pudieron castear los datos devuelve False.
 
-    Raises:
-    ValueError: Exception 
-    Si no fue posible castear la lista.
-
+    Raiese: 
+    ValueError:
+    Ocurre si la linea no tiene el formato correcto o si algun dato no se puede convertir.
+    Sí algo falla se captura el error y se vuelve a lanzar con el mismo mensaje
     '''
     lista = datos.split(",")
-    if len(lista) >6  or len(lista)<6:
-        raise ValueError("Error de dato en la linea")
+    if len(lista)!=6:
+        raise ValueError("Error de longitud en la linea")
     
     try:
         validar_datos(lista[0], "int")
@@ -114,7 +111,6 @@ def parsear_linea(datos):
         validar_datos(lista[3], "float")
         numero_en_rango(float(lista[3]), True, 0)
         validar_datos(lista[4], "bool")
-        validar_datos(lista[-1], "condicion")
     except ValueError as e:
         raise ValueError (e)   
     else:

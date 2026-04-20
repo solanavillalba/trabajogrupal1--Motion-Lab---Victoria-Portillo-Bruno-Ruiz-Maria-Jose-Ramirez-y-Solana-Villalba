@@ -14,10 +14,15 @@ def filtar_por_participante(id_participante, lista):
     Returns:
     dicc: dict
     Es el diccionario que contiene el ID suministrado
-    
-    Raises:
-    ValueError: Exception 
-    Si el ID es erroneo.
+    False: Bool
+    En caso de que el ID no se encuentre en la lista,
+    devuelve un False.
+
+    Raises: 
+    ValueError
+        ocurre cuando el Id no se encuentra en la lista de los participantes.
+
+
     '''
 
     for dicc in lista:        
