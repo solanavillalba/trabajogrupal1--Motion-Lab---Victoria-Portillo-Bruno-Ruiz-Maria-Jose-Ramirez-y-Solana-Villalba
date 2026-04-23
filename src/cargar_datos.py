@@ -30,9 +30,11 @@ def cargar_datos(ruta):
     
     lista_con_diccionario=[]
     lista_id=[]
+    contador_posicion=1
+
+
     for linea1 in lineas:
         linea=linea1.strip()
-        contador_posicion=1
         try:
             lista=v.parsear_linea(linea)
         except Exception as e:
