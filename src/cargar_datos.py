@@ -16,6 +16,10 @@ def cargar_datos(ruta):
     Raises:
     FileNotFoundError: Exception 
     Si no fue posible encontrar el archivo.
+
+    ValueError: Exception
+    Si no fue posible castear una linea.
+
     """
     try:
         archivo = open(ruta, "r")
@@ -26,31 +30,32 @@ def cargar_datos(ruta):
     
     lista_con_diccionario=[]
     lista_id=[]
-    for linea in linea.strip():
-        contador_posicion=1
-        try:
-            lista=v.parsear_linea(linea)
-        except Exception as e:
-            raise ValueError(f"{e} de la fila numero {contador_posicion}, se para el analisis")  
-        else:
-            contador_posicion+=1
-            for dato in lista:
-                if dato[0] not in lista_id:
-                    par={"ID": 0, "tiempo":[], "x":[], "y":[], "hit":[], "condicion": "" }
-                
-                    par["ID"]= dato[0]
-                    par["tiempo"].append(dato[1])
-                    par["x"].append(dato[2])
-                    par["y"].append(dato[3])
-                    par["hit"].append(dato[4])
-                    par["condicion"]= dato[5]
-                    lista_con_diccionario.append(par)
-                    lista_id.append(dato[0])
+    for linea1 in lineas:
+        for linea in linea1.strip():
+            contador_posicion=1
+            try:
+                lista=v.parsear_linea(linea)
+            except Exception as e:
+                raise ValueError(f"{e} de la fila numero {contador_posicion}, se corta el programa")  
             else:
-                for dicc in lista_con_diccionario:
-                    if dicc["ID"]==dato[0]:    
-                        dicc["tiempo"].append(dato[1])
-                        dicc["x"].append(dato[2])
-                        dicc["y"].append(dato[3])
-                        dicc["hit"].append(dato[4])
-    return lista_con_diccionario
+                contador_posicion+=1
+                for dato in lista:
+                    if dato[0] not in lista_id:
+                        par={"ID": 0, "tiempo":[], "x":[], "y":[], "hit":[], "condicion": "" }
+                    
+                        par["ID"]= dato[0]
+                        par["tiempo"].append(dato[1])
+                        par["x"].append(dato[2])
+                        par["y"].append(dato[3])
+                        par["hit"].append(dato[4])
+                        par["condicion"]= dato[5]
+                        lista_con_diccionario.append(par)
+                        lista_id.append(dato[0])
+                else:
+                    for dicc in lista_con_diccionario:
+                        if dicc["ID"]==dato[0]:    
+                            dicc["tiempo"].append(dato[1])
+                            dicc["x"].append(dato[2])
+                            dicc["y"].append(dato[3])
+                            dicc["hit"].append(dato[4])
+        return lista_con_diccionario
