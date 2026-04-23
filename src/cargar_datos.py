@@ -58,4 +58,4 @@ def cargar_datos(ruta):
                         dicc["x"].append(dato[2])
                         dicc["y"].append(dato[3])
                         dicc["hit"].append(dato[4])
-        return lista_con_diccionario
+    return lista_con_diccionario
