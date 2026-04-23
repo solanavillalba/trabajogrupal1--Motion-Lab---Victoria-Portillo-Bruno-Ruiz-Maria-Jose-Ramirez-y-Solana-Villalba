@@ -51,11 +51,11 @@ def cargar_datos(ruta):
                     par["condicion"]= dato[5]
                     lista_con_diccionario.append(par)
                     lista_id.append(dato[0])
-            else:
-                for dicc in lista_con_diccionario:
-                    if dicc["ID"]==dato[0]:    
-                        dicc["tiempo"].append(dato[1])
-                        dicc["x"].append(dato[2])
-                        dicc["y"].append(dato[3])
-                        dicc["hit"].append(dato[4])
+                else:
+                    for dicc in lista_con_diccionario:
+                        if dicc["ID"]==dato[0]:    
+                            dicc["tiempo"].append(dato[1])
+                            dicc["x"].append(dato[2])
+                            dicc["y"].append(dato[3])
+                            dicc["hit"].append(dato[4])
     return lista_con_diccionario

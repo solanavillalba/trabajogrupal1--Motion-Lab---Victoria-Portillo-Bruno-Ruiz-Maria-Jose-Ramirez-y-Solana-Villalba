@@ -38,7 +38,7 @@ def validar_datos(valor, tipo):
             raise ValueError ("Error casteando la condicion")
     else:
         raise ValueError("Mal usada la funcion")
-    return None
+    return True
 
 
 def numero_en_rango(numero, incluido, minimo=-float('inf'), maximo=float('inf')):
