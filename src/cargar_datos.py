@@ -41,23 +41,22 @@ def cargar_datos(ruta):
             raise ValueError(f"{e} de la fila numero {contador_posicion}, se corta el programa")  
         else:
             contador_posicion+=1
-            for dato in lista:
-                if dato[0] not in lista_id:
-                    par={"ID": 0, "tiempo":[], "x":[], "y":[], "hit":[], "condicion": "" }
-                
-                    par["ID"]= dato[0]
-                    par["tiempo"].append(dato[1])
-                    par["x"].append(dato[2])
-                    par["y"].append(dato[3])
-                    par["hit"].append(dato[4])
-                    par["condicion"]= dato[5]
-                    lista_con_diccionario.append(par)
-                    lista_id.append(dato[0])
-                else:
-                    for dicc in lista_con_diccionario:
-                        if dicc["ID"]==dato[0]:    
-                            dicc["tiempo"].append(dato[1])
-                            dicc["x"].append(dato[2])
-                            dicc["y"].append(dato[3])
-                            dicc["hit"].append(dato[4])
+            if linea[0] not in lista_id:
+                par={"ID": 0, "tiempo":[], "x":[], "y":[], "hit":[], "condicion": "" }
+            
+                par["ID"]= linea[0]
+                par["tiempo"].append(linea[1])
+                par["x"].append(linea[2])
+                par["y"].append(linea[3])
+                par["hit"].append(linea[4])
+                par["condicion"]= linea[5]
+                lista_con_diccionario.append(par)
+                lista_id.append(linea[0])
+            else:
+                for dicc in lista_con_diccionario:
+                    if dicc["ID"]==linea[0]:    
+                        dicc["tiempo"].append(linea[1])
+                        dicc["x"].append(linea[2])
+                        dicc["y"].append(linea[3])
+                        dicc["hit"].append(dato[4])
     return lista_con_diccionario
