@@ -58,5 +58,5 @@ def cargar_datos(ruta):
                         dicc["tiempo"].append(lista[1])
                         dicc["x"].append(lista[2])
                         dicc["y"].append(lista[3])
-                        dicc["hit"].append(listas[4])
+                        dicc["hit"].append(lista[4])
     return lista_con_diccionario
