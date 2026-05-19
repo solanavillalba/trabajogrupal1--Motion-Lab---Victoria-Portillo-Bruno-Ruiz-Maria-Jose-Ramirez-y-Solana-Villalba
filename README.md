@@ -40,4 +40,12 @@ Division por 0: "No se puede calcular el promedio porque el ultimo tiempo es 0".
   - Promedio de primer hit
   - Hits totales
   - Promedio de hits totales
-  
+
+-------------------------------------------------------------------------------------
+
+PANDAS:
+  En lugar de leer el archivo línea por línea como hacía nuestra función cargar_datos(), con pandas vamos a usar pd.read_csv() para cargar todo de una vez, convirtiendo el archivo csv en un dataframe (una tabla de filas y columnas). 
+
+Luego la función filtrar_por_participante() la vamos a reemplazar por una máscara que filtre directamente las filas donde el ID coincida con el participante buscado.  
+
+Para calcular_tiempo_primer_hit(), vamos a usar una máscara que combine el id del participante con la condición de que hit sea True, y con .iloc[0] se obtendría el tiempo de la primera fila que cumpla esa condición. Para calcular_hits_totales() hay dos opciones, una es usar una máscara que filtre los True y implementar .count() para contar las filas que resulten true, o la segunda opción, usaríamos .sum() sobre la columna hit, que suma solo los true ignorando los false. Y para calcular_promedio() usaremos .mean en la mascara del participante.
