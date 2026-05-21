@@ -15,7 +15,7 @@ def validar_datos(valor, tipo):
     
     Raises:
     ValueError:
-        Ocurre si no se puede convertir el valor  o es incorrecto.
+     Ocurre si no se puede convertir el valor  o es incorrecto.
     """
 
     if tipo == "bool":
