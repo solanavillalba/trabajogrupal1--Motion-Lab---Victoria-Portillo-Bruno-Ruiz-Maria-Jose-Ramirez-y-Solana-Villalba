@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 nombre_archivo = "datos/MotionLab_mock_data.csv"
 try:
     lista_diccionario= c.cargar_datos(nombre_archivo)
+except FileNotFoundError as e:
 except Exception as e:
     print(e)
 

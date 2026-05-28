@@ -14,12 +14,18 @@ def cargar_datos(ruta):
     Lista con diccionarios, cada diccionario corresponde a un participantes con sus datos (ID, Tiempo, x, y, hit y condición). Si no se pudieron castear los valores de alguna lista, se informara.
     
     Raises:
+<<<<<<< HEAD
+    FileNotFoundError:
+    Ocurre si no se puede abrir el archivo
+    
+=======
     FileNotFoundError: Exception 
     Si no fue posible encontrar el archivo.
 
     ValueError: Exception
     Si no fue posible castear una linea.
 
+>>>>>>> 9fc54ce31f21b084cbb32edd6386f23693449b95
     """
     try:
         archivo = open(ruta, "r")
