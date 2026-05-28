@@ -6,7 +6,7 @@
  
  
 #metricas
- def calcular_tiempo_primer_hit(datframe,id):
+ def calcular_tiempo_primer_hit(dataframe,id):
     '''
     Devuelve el primer tiempo en el que ocurrió un hit entre todos los participantes.
     Parámetros:
