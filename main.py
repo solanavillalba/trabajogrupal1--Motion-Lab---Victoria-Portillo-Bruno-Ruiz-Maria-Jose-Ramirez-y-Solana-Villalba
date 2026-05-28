@@ -2,6 +2,7 @@ import src.metricas as m
 import src.cargar_datos as c
 import src.procesamiento_datos as p
 import src.validar_datos as v
+import matplotlib.pyplot as plt
 
 nombre_archivo = "datos/MotionLab_mock_data.csv"
 try:
@@ -30,12 +31,20 @@ else:
     hits_tot=m.calcular_hits_totales(diccionario)
 
     print("el participante con id", id_participante)
-    if type(primer_hit)==str: 
+    if type(primer_hit)== None: 
         print(primer_hit)
     else:
-        print("Hizo su primer hit en el tiempo", primer_hit)
-            
-    print("Tiene", hits_tot, "hit en total")
+        plt.figure()
+        plt.scatter(primer_hit, 60)
+        plt.title(f'Línea de Tiempo Individual: Primer Hit - Participante {id_participante}')
+        plt.xlabel('Tiempo (segundos)')
+
+    plt.figure()
+    plt.bar(id_participante, hits_tot)
+    plt.title('Total de hits por participante')
+    plt.xlabel('ID del Participante')
+    plt.ylabel('Cantidad de Hits')
+    plt.show()
         
     try:
         prom=m.calcular_promedio(diccionario)
