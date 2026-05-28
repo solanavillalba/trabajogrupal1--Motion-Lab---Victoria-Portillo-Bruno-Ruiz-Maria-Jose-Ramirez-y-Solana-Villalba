@@ -7,6 +7,7 @@ st.title("Dashboard del MotionLAB")
 archivo = st.file_uploader("aca va el archivo", type= "csv") 
 
 if archivo is not None:
-    df = pd.read_csv(archivo)
+    try: 
+        df = pd.read_csv(archivo)
 
  
