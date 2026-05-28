@@ -1,17 +1,28 @@
- def calcular_tiempo_primer_hit(datframe,id):
-    '''
+ def calcular_tiempo_primer_hit(datos):
+    """
     Devuelve el primer tiempo en el que ocurrió un hit entre todos los participantes.
     Parámetros:
-    dataframe: dataframe con las siguientes columnas: "ID", "tiempo", "hit", "x", "y", "condicion".
-    id: participante a conseguir su primer tiempo.
-
+    datos : list
+    Lista de diccionarios, cada diccionario contiene:
+    "ID", "tiempo", "hit", "x", "y", "condicion"
+        
     Retorna:
-    int | float | None :el primer tiempo del participante (haya tenido o no)
+    primer_tiempo: str | float 
+    Primer tiempo donde hubo un hit, o no hizo ningún hit si no hay hits.
 
-    '''
-    mascara=(dataframe["hit"]==True) & (dataframe["ID"]==id)
-    filtrado=dataframe[mascara]
-    return filtrado.iloc[0]['tiempo']
+    """
+
+#Incializador variable
+
+    primer_tiempo = "No hizo ningún hit"
+
+    for i in range(len(datos["hit"])):
+         hit_actual = datos["hit"][i]
+         tiempo_actual = datos["tiempo"][i]
+         if hit_actual == True:
+                return tiempo_actual
+    
+    return primer_tiempo
 
 
 def calcular_hits_totales(diccio):
