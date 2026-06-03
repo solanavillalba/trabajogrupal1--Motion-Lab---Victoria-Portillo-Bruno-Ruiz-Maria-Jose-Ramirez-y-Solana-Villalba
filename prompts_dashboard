@@ -1,0 +1,41 @@
+================================================================
+BITÁCORA DE INGENIERÍA DE PROMPTS — MotionLab Dashboard
+================================================================
+ 
+
+1. PROMPT SEMILLA (estructura ROCA)
+
+ 
+ROL:
+Sos un desarrollador principiante en Python e interfaces web con Streamlit.
+No tenes experiencia.
+ 
+OBJETIVO:
+Crear el archivo app.py que funciona como dashboard web para el sistema
+MotionLab. Este archivo debe integrarse con los módulos ya existentes en
+la carpeta src/ sin modificarlos.
+ 
+CONTEXTO:
+El proyecto MotionLab es un sistema de análisis de datos de laboratorio.
+Ya tiene los siguientes módulos en src/:
+  - cargar_datos.py    → lee el CSV y devuelve una lista de dataset
+  - validar_datos.py   → valida inputs y parsea líneas del CSV
+  - procesamiento_datos.py → filtra participantes por ID
+  - metricas.py        → calcula hits totales, primer hit y promedio
+ 
+Cada participante es un diccionario con claves:
+  "ID", "tiempo", "x", "y", "hit", "condicion"
+ 
+ACCIÓN:
+Programá el archivo app.py usando Streamlit con el siguiente flujo:
+  1. st.file_uploader para que el usuario suba el CSV
+  2. Llamar a c.cargar_datos() y capturar FileNotFoundError y ValueError,
+     mostrando los errores con st.error() y deteniendo el flujo con st.stop()
+  3. Mostrar KPIs con st.metric(): hits totales, primer hit y promedio
+  4. Mostrar gráficos con st.pyplot(): línea de tiempo del primer hit y
+     barras del total de hits por participante
+ 
+Usá un nivel de código accesible para un programador Python inicial.
+Comentá cada sección del código.
+ 
+ 
